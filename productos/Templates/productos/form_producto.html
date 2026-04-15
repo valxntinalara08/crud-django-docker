@@ -1,0 +1,46 @@
+{% extends 'productos/base.html' %}
+
+{% block title %}{{ titulo }}{% endblock %}
+
+{% block content %}
+
+<h2>{{ titulo }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <p>
+        <label>Nombre</label><br>
+        {{ form.nombre }}
+    </p>
+
+    <p>
+        <label>Descripción</label><br>
+        {{ form.descripcion }}
+    </p>
+
+    <p>
+        <label>Precio</label><br>
+        {{ form.precio }}
+    </p>
+
+    <p>
+        <label>Stock</label><br>
+        {{ form.stock }}
+    </p>
+
+    <p>
+        <label>Categoría</label><br>
+        {{ form.categoria }}
+    </p>
+
+    <p>
+        {{ form.activo }} Activo
+    </p>
+
+    <button type="submit">Guardar</button>
+</form>
+
+<a href="{% url 'lista_productos' %}">Cancelar</a>
+
+{% endblock %}
